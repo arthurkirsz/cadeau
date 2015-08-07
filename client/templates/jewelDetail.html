@@ -1,0 +1,37 @@
+<template name="jewelDetail">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 product">
+		<a href="{{pathFor 'jewels'}}" class="btn" id="back-btn"><span>Retour à la liste</span></a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 product">
+			<div>
+				{{#if isActive}}{{else}}<span class="label label-success">Réservé</span>{{/if}}
+				<h2 class="text-center">{{name}}</h2>
+
+				<img src="/images/{{code}}.jpg" width="200px">
+				{{#if isActive}}			
+					<form>
+						<p><label for="owner_value">Personnes qui offrent ce cadeau :</label></p>
+						<p><input type="text" id="owner_value" placeholder="Saisir le nom des participants au cadeau"></p>
+						<input type="submit" value="Réserver" disabled="disabled" id="submit" class="btn">	
+					</form>
+				{{else}}
+					<h3>Ce cadeau est réservé !</h3>
+					<h5 class="owner">Cadeau offert par : <strong>{{owner}}</strong></h5>
+					<br>
+					<button id="cancel" class="btn hidden">Annuler la réservation de ce cadeau</button>
+				{{/if}}
+			</div>			
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 info">				
+			<div>
+				<span class="price">Prix: {{price}} €</span>
+				<hr>		
+				<a href="{{url}}" target="_blank" class="btn">Accéder au site web pour l'achat</a>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,40 @@
+<template name="jewels">
+
+
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<ul class="row list">
+				{{# each jewels}}
+					<li class="col-lg-4 col-md-4 col-sm-6 col-xs-12 {{#if isActive}}{{else}} owned {{/if}}" id="{{_id}}">
+						<div>
+							<h2>
+								{{name}}
+							</h2>
+
+							{{#if isActive}}{{else}}<span class="label label-success">Réservé</span>{{/if}}
+							<img src="images/{{code}}.jpg">
+							<span class="price">{{price}} €</span>
+							{{#if isActive}}
+								<a href="/jewels/{{_id}}" class="btn">Je lui offre celui la !</a>
+							{{else}}				
+								<a href="/jewels/{{_id}}"><span class="owner">Réservé par : {{owner}}</span></a>
+							{{/if}}
+						</div>						
+					</li>
+				{{/each}}
+				<div class="clearfix"></div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div style="max-width: 200px; margin:80px auto 50px;opacity: .8;" class="text-center">
+			<h4>Avancement</h4>
+			<div class="progress" style="background: #D2D2D2;margin:auto;">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{percentDone}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentDone}}%;">{{percentDone}}%
+				</div>
+			</div>
+		</div>		
+	</div>  
+
+</template>

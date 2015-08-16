@@ -12,7 +12,7 @@ if (Meteor.isClient) {
       var ratio = done/total;
       var percentDone = Math.round(ratio*100);
 
-      return percentDone;
+      return percentDone || '...';
     }
   });
 

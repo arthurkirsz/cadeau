@@ -13,8 +13,8 @@
 
 							{{#if isActive}}{{else}}<span class="label label-success">Réservé</span>{{/if}}
 							<img src="images/{{code}}.jpg">
-							<span class="price">{{price}} €</span>
 							{{#if isActive}}
+								<span class="price">{{price}} €</span>
 								<a href="/jewels/{{_id}}" class="btn">Je lui offre celui la !</a>
 							{{else}}				
 								<a href="/jewels/{{_id}}"><span class="owner">Réservé par : {{owner}}</span></a>

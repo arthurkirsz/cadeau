@@ -8,7 +8,6 @@
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 product">
 			<div>
-				{{#if isActive}}{{else}}<span class="label label-success">Réservé</span>{{/if}}
 				<h2 class="text-center">{{name}}</h2>
 
 				<img src="/images/{{code}}.jpg" width="200px">
@@ -28,9 +27,13 @@
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 info">				
 			<div>
-				<span class="price">Prix: {{price}} €</span>
-				<hr>		
-				<a href="{{url}}" target="_blank" class="btn">Accéder au site web pour l'achat</a>
+				{{#if isActive}}	
+					<span class="price">Prix: {{price}} €</span>
+					<hr>		
+					<a href="{{url}}" target="_blank" class="btn">Accéder au site web pour l'achat</a>
+				{{else}}
+					<span class="label label-success">Réservé</span>
+				{{/if}}
 			</div>
 		</div>
 	</div>
